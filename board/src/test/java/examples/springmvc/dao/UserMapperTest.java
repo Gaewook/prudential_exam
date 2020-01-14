@@ -25,5 +25,27 @@ public class UserMapperTest {
 		List<User> users = userMapper.getUsers();
 		Assert.assertEquals(users.size(), 2);
 	}
+	
+	@Test
+	public void getUser() throws Exception{
+		String user_id = "carami";
+		User user = userMapper.getUser(user_id);
+//		System.out.println(user);
+//		System.out.println(user.getName());
+//		System.out.println(user.getUserId());
+		Assert.assertEquals(user.getUserId(), user_id);
+	}
+
+	@Test
+	public void addUser() throws Exception{
+		User user = new User();
+		user.setUserId("kgw");
+		user.setName("김개욱");
+		user.setPassword("1234");
+		int insertCount = userMapper.addUser(user);
+		
+		Assert.assertEquals(insertCount, 1);		
+		Assert.assertEquals(((User)userMapper.getUser("kgw")).getName(), "김개욱");
+	}
 }
 

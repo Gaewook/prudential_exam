@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="examples.springmvc.dao.UsersMapper">
-	<!-- resultMap type="examples.springmvc.dto.User" id="user_result_map"> 
-		<result column="user_id" property="userId"/>
+	<resultMap type="examples.springmvc.dto.User" id="user_result_map"> 
+		<result column="user_id" property="userId" javaType="String"/>
 		<result column="name" property="name"/>
 		<result column="password" property="password"/>
 		<result column="join_date" property="joinDate"/>
-	</resultMap -->
+	</resultMap>
 	<select id="getUsers" resultType="examples.springmvc.dto.User">
 		SELECT user_id, name, password, join_date from users
 	</select>
+	<select id="getUser" parameterType="String" resultMap="user_result_map">
+		SELECT user_id, name, password, join_date from users WHERE user_id = #{user_id}
+	</select>
+	<insert id="addUser" parameterType="examples.springmvc.dto.User">
+		INSERT INTO users(user_id, name, password, join_date) values(#{userId}, #{name}, #{password}, CURRENT_TIMESTAMP())
+	</insert>
 </mapper>

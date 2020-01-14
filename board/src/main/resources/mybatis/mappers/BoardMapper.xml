@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="examples.springmvc.dao.BoardsMapper">
+	<resultMap type="examples.springmvc.dto.Board" id="board_result_map"> 
+		<result column="user_id" property="userId" javaType="String"/>
+		<result column="read_count" property="readCount"/>
+		<result column="write_date" property="writeDate"/>
+		<result column="update_date" property="updateDate"/>
+	</resultMap>
+	<select id="getBoards" parameterType="examples.springmvc.dto.SearchCondition" resultMap="board_result_map">
+		SELECT id, user_id, title, read_count, write_date, update_date from board
+	</select>
+	<select id="getBoard" parameterType="Long" resultMap="board_result_map">
+		SELECT id, user_id, title, read_count, write_date, update_date from board where id = #{id}
+	</select>
+	<insert id="addBoard" parameterType="examples.springmvc.dto.Board" keyProperty="id" useGeneratedKeys="true">
+		INSERT INTO board(user_id, title, content, read_count, write_date, update_date) values(#{userId}, #{title}, #{content}, 0, CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP())
+	</insert>
+	<select id="getBoardCount" resultType="Long">
+		SELECT count(*) from board
+	</select>
+</mapper>

@@ -6,7 +6,7 @@ public class User {
 	private String userId;
 	private String name;
 	private String password;
-	private Date join_date;
+	private Date joinDate;
 	
 	public String getUserId() {
 		return userId;
@@ -26,10 +26,16 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Date getJoin_date() {
-		return join_date;
+	public Date getJoinDate() {
+		return joinDate;
 	}
-	public void setJoin_date(Date join_date) {
-		this.join_date = join_date;
+	public void setJoinDate(Date joinDate) {
+		this.joinDate = joinDate;
 	}
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", name=" + name + ", password=" + password + ", join_date=" + joinDate
+				+ "]";
+	}
+	
 }
