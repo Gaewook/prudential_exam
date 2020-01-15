@@ -5,7 +5,15 @@ import java.sql.Date;
 public class Board {
     Long id;
     String userId;
-    String title;
+    String userName;
+    public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	String title;
     String content;
     Integer readCount;
     Date writeDate;
@@ -53,10 +61,11 @@ public class Board {
 	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
 	}
-	
 	@Override
 	public String toString() {
-		return "Board [id=" + id + ", userId=" + userId + ", title=" + title + ", content=" + content + ", readCount="
-				+ readCount + ", writeDate=" + writeDate + ", updateDate=" + updateDate + "]";
+		return "Board [id=" + id + ", userId=" + userId + ", userName=" + userName + ", title=" + title + ", content="
+				+ content + ", readCount=" + readCount + ", writeDate=" + writeDate + ", updateDate=" + updateDate
+				+ "]";
 	}
+	
 }

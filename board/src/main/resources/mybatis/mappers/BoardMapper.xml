@@ -11,7 +11,7 @@
 		SELECT id, user_id, title, read_count, write_date, update_date from board
 	</select>
 	<select id="getBoard" parameterType="Long" resultMap="board_result_map">
-		SELECT id, user_id, title, read_count, write_date, update_date from board where id = #{id}
+		SELECT b.id, b.user_id, u.name as username, b.title, b.read_count, b.write_date, b.update_date from board b join users u on b.user_id = u.user_id where id = #{id}
 	</select>
 	<insert id="addBoard" parameterType="examples.springmvc.dto.Board" keyProperty="id" useGeneratedKeys="true">
 		INSERT INTO board(user_id, title, content, read_count, write_date, update_date) values(#{userId}, #{title}, #{content}, 0, CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP())

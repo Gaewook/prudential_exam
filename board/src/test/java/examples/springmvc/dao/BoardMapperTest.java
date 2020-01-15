@@ -36,7 +36,7 @@ public class BoardMapperTest {
 	public void getBoard() throws Exception{
 		Long board_id = (long) 1;
 		Board board = boardMapper.getBoard(board_id);
-//		System.out.println(Board);
+		System.out.println(board);
 //		System.out.println(Board.getName());
 //		System.out.println(Board.getBoardId());
 		Assert.assertEquals(board.getId(), board_id);
