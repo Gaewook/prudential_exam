@@ -8,7 +8,7 @@
 		<result column="password" property="password"/>
 		<result column="join_date" property="joinDate"/>
 	</resultMap>
-	<select id="getUsers" resultType="examples.springmvc.dto.User">
+	<select id="getUsers" resultMap="user_result_map">
 		SELECT user_id, name, password, join_date from users
 	</select>
 	<select id="getUser" parameterType="String" resultMap="user_result_map">
