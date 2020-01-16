@@ -40,15 +40,18 @@ public class UserController {
 	
 	@GetMapping(value="/loginform")
 	public String loginForm() {
-		return "/users/loginform";
+		return "users/loginform";
 	}
 	
 	@PostMapping("/login")
 	public String login(@ModelAttribute User user, HttpSession session) {
 		User dbUser = userService.getUser(user.getUserId());
 		
+//		System.out.println(user);
+		
 		if (dbUser != null && dbUser.getPassword().equals(user.getPassword())) {
 			session.setAttribute("login",  user);
+//			System.out.println("#####" + session.getAttribute("login").toString());
 			return "redirect:/boards";
 		} else {
 			// 로그인 실패
@@ -56,7 +59,9 @@ public class UserController {
 		}
 	}
 	@GetMapping("/logout")
-	public String logout() {
-			return loginForm();
+	public String logout(HttpSession session) {
+		session.removeAttribute("login");
+//		return loginForm();
+		return "redirect:/boards"; 
 		}
 }

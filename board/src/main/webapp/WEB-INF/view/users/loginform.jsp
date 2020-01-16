@@ -8,10 +8,10 @@
 </head>
 <body>
 로그인
-<form name="login" action="/users/login">
+<form name="login" method="post" action="/users/login">
 ID : <input name="userId" type="text"><br/>
 PW : <input name="password" type="password"><br/>
-<input type="submit" value="확인">
+<input type="submit" value="확인">   
 </form>
 
 </body>

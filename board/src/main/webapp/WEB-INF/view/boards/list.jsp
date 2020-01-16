@@ -2,7 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +9,11 @@
 <title>게시판목록</title>
 </head>
 <body>
-<c:if test="${session.getAttribute("user")}!=null">
+<c:if test="${sessionScope.login == null }">
+	<a href="users/loginform">로그인</a>
+</c:if>
+
+<c:if test="${sessionScope.login != null }"> 
 	
 	<table border="1">
 	<tr>
@@ -30,7 +33,7 @@
 	</tr>		
 		</c:forEach>
 		</table> 
+	<a href="users/logout">로그아웃</a>
 </c:if>
-<a href="users/logout">로그아웃</a>
 </body>
 </html>
