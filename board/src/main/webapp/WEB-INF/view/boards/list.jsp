@@ -14,7 +14,9 @@
 </c:if>
 
 <c:if test="${sessionScope.login != null }"> 
-	
+<form name ="searchCondition" method="post" action="/boards">
+검색조건 : USER_ID <input name="userId" type="text">, TITLE <input name="title" type="text"> <input type="submit" value="검색"> 
+</form>
 	<table border="1">
 	<tr>
 	<td>ID</td>

@@ -16,9 +16,9 @@ public class BoardService {
 	private BoardsMapper boardsMapper;
 	
 	@Transactional(readOnly=true)
-	public List<Board> getBoards() {
+	public List<Board> getBoards(SearchCondition searchCondition) {
 		
-		SearchCondition searchCondition = new SearchCondition();
+//		SearchCondition searchCondition = new SearchCondition();
 		return boardsMapper.getBoards(searchCondition);
 	}
 	

@@ -8,7 +8,13 @@
 		<result column="update_date" property="updateDate"/>
 	</resultMap>
 	<select id="getBoards" parameterType="examples.springmvc.dto.SearchCondition" resultMap="board_result_map">
-		SELECT b.id, b.user_id, u.name as username, b.title, b.read_count, b.write_date, b.update_date from board b join users u on b.user_id = u.user_id
+		SELECT b.id, b.user_id, u.name as username, b.title, b.read_count, b.write_date, b.update_date from board b join users u on b.user_id = u.user_id where 1=1 
+		<if test="userId != null">
+		    AND b.user_id like '%'||#{userId}||'%'
+		</if>
+		<if test="title != null">
+		    AND b.title like '%'||#{title}||'%'
+		</if>
 	</select>
 	<select id="getBoard" parameterType="Long" resultMap="board_result_map">
 		SELECT b.id, b.user_id, u.name as username, b.title, b.read_count, b.write_date, b.update_date from board b join users u on b.user_id = u.user_id where id = #{id}

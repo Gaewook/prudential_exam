@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import examples.springmvc.dto.Board;
+import examples.springmvc.dto.SearchCondition;
 import examples.springmvc.service.BoardService;
 
 @Controller
@@ -17,9 +18,9 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 	
-	@GetMapping
-	public String getBoards(Model model) {
-		model.addAttribute("list", boardService.getBoards());
+	@RequestMapping
+	public String getBoards(SearchCondition searchCondition, Model model) {
+		model.addAttribute("list", boardService.getBoards(searchCondition));
 		return "boards/list";
 	}
 	@GetMapping(value="/joinForm")
