@@ -4,7 +4,6 @@ import java.util.List;
 
 import examples.springmvc.dto.Board;
 import examples.springmvc.dto.SearchCondition;
-import examples.springmvc.dto.User;
 import examples.springmvc.mapper.Mapper;
 
 @Mapper

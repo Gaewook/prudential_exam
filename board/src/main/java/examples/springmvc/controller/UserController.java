@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import examples.springmvc.dto.Board;
 import examples.springmvc.dto.User;
 import examples.springmvc.service.UserService;
 
