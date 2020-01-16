@@ -10,23 +10,27 @@
 <title>게시판목록</title>
 </head>
 <body>
-<table border="1">
-<tr>
-<td>ID</td>
-<td>USER_ID</td>
-<td>USER_NAME</td>
-<td>TITLE</td>
-<td>CONTENT</td>
-</tr>
-	<c:forEach var="board" items="${list}"> 
-<tr>
-		<td><div>${board.id}</div></td>
-		<td><div>${board.userId}</div></td>
-		<td><div>${board.userName}</div></td>
-		<td><div>${board.title}</div></td>
-		<td><div>${board.content}</div></td>
-</tr>		
-	</c:forEach>
-	</table> 
+<c:if test="${session.getAttribute("user")}!=null">
+	
+	<table border="1">
+	<tr>
+	<td>ID</td>
+	<td>USER_ID</td>
+	<td>USER_NAME</td>
+	<td>TITLE</td>
+	<td>CONTENT</td>
+	</tr>
+		<c:forEach var="board" items="${list}"> 
+	<tr>
+			<td><div>${board.id}</div></td>
+			<td><div>${board.userId}</div></td>
+			<td><div>${board.userName}</div></td>
+			<td><div>${board.title}</div></td>
+			<td><div>${board.content}</div></td>
+	</tr>		
+		</c:forEach>
+		</table> 
+</c:if>
+<a href="users/logout">로그아웃</a>
 </body>
 </html>

@@ -55,4 +55,8 @@ public class UserController {
 			return "redirect:/users/loginform";
 		}
 	}
+	@GetMapping("/logout")
+	public String logout() {
+			return loginForm();
+		}
 }
