@@ -35,7 +35,7 @@ public class UserController {
 	@PostMapping(value="/actionJoin")
 	public String actionJoin(User user) {
 		userService.addUser(user);
-		return "redirect:/users";
+		return loginForm();
 	}		
 	
 	@GetMapping(value="/loginform")

@@ -13,6 +13,6 @@ ID : <input name="userId" type="text"><br/>
 PW : <input name="password" type="password"><br/>
 <input type="submit" value="확인">   
 </form>
-
+<a href="/users/joinForm">가입</a>
 </body>
 </html>
